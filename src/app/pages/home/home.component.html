@@ -1,3 +1,11 @@
-<h2>Olympic games app</h2>
-<hr />
-<p>{{ (olympics$ | async)?.length }} data loaded</p>
+<BoxedText>Medals per Country</BoxedText>
+<Row>
+  <BoxedText>
+    Number of OGs <br/>
+    {{ (olympics$ | async)?.length }}
+  </BoxedText>
+  <BoxedText>
+    Number of Countries <br/>
+    {{ (olympics$ | async)?.length }}
+  </BoxedText>
+</Row>
