@@ -9,3 +9,13 @@
     {{ (olympics$ | async)?.length }}
   </BoxedText>
 </Row>
+<ngx-charts-pie-chart
+  [results]="data"
+  scheme="cool"
+  [labels]="show_labels"
+  [trimLabels]="trim_labels"
+  [legend]="show_legend"
+  legendTitle="Countries"
+  (legendPosition)="legend_position"
+  >
+</ngx-charts-pie-chart>
