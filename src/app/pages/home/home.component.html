@@ -10,13 +10,13 @@
   </BoxedText>
 </Row>
 <ngx-charts-pie-chart
-  [results]="data"
   scheme="cool"
-  [labels]="show_labels"
-  [trimLabels]="trim_labels"
-  [legend]="show_legend"
   legendTitle="Countries"
-  (legendPosition)="legend_position"
+  [results]="data"
+  [labels]="showLabels"
+  [trimLabels]="trimLabels"
+  [legend]="showLegend"
+  (legendPosition)="legendPosition"
   (select)="onChartSelect($event)"
   >
 </ngx-charts-pie-chart>

@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subscription, of } from 'rxjs';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import { OlympicCountry } from 'src/app/core/models/OlympicCountry';
 import { BoxedTextComponent } from 'src/app/core/components/BoxedTextComponent';
 import { RowComponent } from 'src/app/core/components/RowComponent';
+
+interface ChartData {
+  name: string,
+  value: number,
+  extra: { countryId: number }
+}
 
 @Component({
   selector: 'app-home',
@@ -14,23 +21,24 @@ export class HomeComponent implements OnInit {
   public olympics$: Observable<Array<OlympicCountry>> = of([]);
   olympics_subscription: Subscription | null = null;
   // Chart settings.
-  data: Array<{name: string, value: number}> = [];
-  show_labels: boolean = true;
-  trim_labels: boolean = false;
-  show_legend: boolean = true;
-  legend_position: string = 'below';
+  data: Array<ChartData> = [];
+  showLabels: boolean = true;
+  trimLabels: boolean = false;
+  showLegend: boolean = true;
+  legendPosition: string = 'below';
 
 
-  constructor(private olympicService: OlympicService) {}
+  constructor(private olympicService: OlympicService, private router: Router) {}
 
   ngOnInit(): void {
     this.olympics$ = this.olympicService.getOlympics();
     this.olympics_subscription = this.olympics$.subscribe((countries: Array<OlympicCountry>) => {
       this.data = countries.map((country: OlympicCountry) => {
-        let total_medal_count = country.participations.reduce((tot, part) => tot + part.medalsCount, 0);
+        let totalMedalCount = country.participations.reduce((tot, part) => tot + part.medalsCount, 0);
         return {
           name: country.country,
-          value:  total_medal_count,
+          value:  totalMedalCount,
+          extra: {countryId: country.id}
         };
       });
     });
@@ -42,8 +50,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  onChartSelect(data: {name: string, value: number}): void {
-    console.log("name: ", data.name);
-    console.log("value: ", data.value);
+  onChartSelect(data: ChartData): void {
+    this.router.navigate(['details', data.extra.countryId])
   }
 }
