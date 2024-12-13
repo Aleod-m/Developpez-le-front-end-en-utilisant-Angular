@@ -1,19 +1,23 @@
-<BoxedText>{{country.country}}</BoxedText>
-<Row>
-  <BoxedText>
-    Number of Entries <br/>
-    {{ country.participations.length }}
-  </BoxedText>
-  <BoxedText>
-    Number of Medals<br/>
-    {{totalMedals}}
+<Center>
+  <BoxedText>{{country.country}}</BoxedText>
+</Center>
+<Center>
+  <Row>
+    <BoxedText>
+      Number of Entries <br/>
+      {{ country.participations.length }}
+    </BoxedText>
+    <BoxedText>
+      Number of Medals<br/>
+      {{totalMedals}}
 
-  </BoxedText>
-  <BoxedText>
-    Number of athletes<br/>
-    {{totalAthletes}}
-  </BoxedText>
-</Row>
+    </BoxedText>
+    <BoxedText>
+      Number of athletes<br/>
+      {{totalAthletes}}
+    </BoxedText>
+  </Row>
+</Center>
 <ngx-charts-line-chart
   scheme="cool"
   [legend]="legend"

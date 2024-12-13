@@ -1,22 +1,28 @@
-<BoxedText>Medals per Country</BoxedText>
-<Row>
-  <BoxedText>
-    Number of OGs <br/>
-    {{ (olympics$ | async)?.length }}
-  </BoxedText>
-  <BoxedText>
-    Number of Countries <br/>
-    {{ (olympics$ | async)?.length }}
-  </BoxedText>
-</Row>
-<ngx-charts-pie-chart
-  scheme="cool"
-  legendTitle="Countries"
-  [results]="data"
-  [labels]="showLabels"
-  [trimLabels]="trimLabels"
-  [legend]="showLegend"
-  (legendPosition)="legendPosition"
-  (select)="onChartSelect($event)"
-  >
-</ngx-charts-pie-chart>
+<Center>
+  <BoxedText>Medals per Country</BoxedText>
+</Center>
+<Center>
+  <Row>
+    <BoxedText>
+      Number of Olympic Games <br/>
+      {{ (olympics$ | async)?.length }}
+    </BoxedText>
+    <BoxedText>
+      Number of Countries <br/>
+      {{ (olympics$ | async)?.length }}
+    </BoxedText>
+  </Row>
+</Center>
+<Center>
+  <ngx-charts-pie-chart
+    scheme="cool"
+    legendTitle="Countries"
+    [results]="data"
+    [labels]="showLabels"
+    [trimLabels]="trimLabels"
+    [legend]="showLegend"
+    [legendPosition]="legendPosition"
+    (select)="onChartSelect($event)"
+    >
+  </ngx-charts-pie-chart>
+</Center>
