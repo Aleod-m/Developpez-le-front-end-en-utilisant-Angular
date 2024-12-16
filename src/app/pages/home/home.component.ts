@@ -14,7 +14,7 @@ interface ChartData {
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrls: ['../page.component.scss'],
 })
 export class HomeComponent implements OnInit {
   public olympics$: Observable<Array<OlympicCountry>> = of([]);
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   showLabels: boolean = true;
   trimLabels: boolean = false;
   showLegend: boolean = true;
-  legendPosition: LegendPosition = LegendPosition.Below;
+  legendPosition: LegendPosition = LegendPosition.Right;
 
   constructor(private olympicService: OlympicService, private router: Router) {}
 
