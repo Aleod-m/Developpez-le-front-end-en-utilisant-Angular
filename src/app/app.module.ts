@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,6 +9,7 @@ import { DetailsComponent } from './pages/details/details.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ComponentLibModule } from 'src/app/core/components/component-lib.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -22,10 +23,10 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     ComponentLibModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule,
-    NgxChartsModule
+    NgxChartsModule,
+    FontAwesomeModule,
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
