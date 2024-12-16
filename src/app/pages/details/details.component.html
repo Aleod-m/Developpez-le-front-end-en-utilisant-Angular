@@ -18,15 +18,17 @@
     </BoxedText>
   </Row>
 </Center>
-<ngx-charts-line-chart
-  scheme="cool"
-  [legend]="legend"
-  [showXAxisLabel]="showXAxisLabel"
-  [showYAxisLabel]="showYAxisLabel"
-  [xAxis]="xAxis"
-  [yAxis]="yAxis"
-  [xAxisLabel]="xAxisLabel"
-  [yAxisLabel]="yAxisLabel"
-  [results]="data"
-  >
-</ngx-charts-line-chart>
+<ChartContainer style="flex-shrink: 0; flex-grow: 1;">
+  <ngx-charts-line-chart
+    scheme="cool"
+    [legend]="legend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxis]="xAxis"
+    [yAxis]="yAxis"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [results]="data"
+    >
+  </ngx-charts-line-chart>
+</ChartContainer>

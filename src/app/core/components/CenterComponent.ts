@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'Center',
@@ -10,7 +10,8 @@ import { Component, Input } from '@angular/core';
   styles: `
     div {
       display: grid;
-      place-content: center;
+      place-items: center;
+      height: max-content;
     }
   `,
 })

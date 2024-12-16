@@ -13,7 +13,7 @@
     </BoxedText>
   </Row>
 </Center>
-<Center>
+<ChartContainer style="flex-shrink: 0; flex-grow: 1;">
   <ngx-charts-pie-chart
     scheme="cool"
     legendTitle="Countries"
@@ -25,4 +25,4 @@
     (select)="onChartSelect($event)"
     >
   </ngx-charts-pie-chart>
-</Center>
+</ChartContainer>
