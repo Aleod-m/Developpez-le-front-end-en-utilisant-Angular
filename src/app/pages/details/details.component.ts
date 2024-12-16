@@ -4,6 +4,7 @@ import { OlympicService } from 'src/app/core/services/olympic.service';
 import { OlympicCountry } from 'src/app/core/models/OlympicCountry';
 import { BoxedTextComponent } from 'src/app/core/components/BoxedTextComponent';
 import { RowComponent } from 'src/app/core/components/RowComponent';
+import { Router } from '@angular/router';
 
 interface ChartData {
   name: string,
@@ -13,13 +14,18 @@ interface ChartData {
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss'],
+  styleUrls: ['../page.component.scss'],
 })
 export class DetailsComponent implements OnInit {
   public olympics$: Observable<Array<OlympicCountry>> = of([]);
   @Input({required: true}) countryId!: number;
+
+
   olympicsSubscription: Subscription | null = null;
+
   country: OlympicCountry = {id: -1, country: "Invalid Country", participations: []};
+
+  // Icons
   // Chart settings.
   data: Array<ChartData> = [];
   legend: boolean = true;
@@ -32,7 +38,7 @@ export class DetailsComponent implements OnInit {
   totalAthletes: number = 0;
   totalMedals: number = 0;
 
-  constructor(private olympicService: OlympicService) {}
+  constructor(private olympicService: OlympicService, private router: Router) {}
 
   ngOnInit(): void {
     this.olympics$ = this.olympicService.getOlympics();
@@ -40,9 +46,10 @@ export class DetailsComponent implements OnInit {
     this.olympicsSubscription =
         this.olympics$.subscribe((countries: Array<OlympicCountry>) => {
           let found = countries.find(country => country.id == this.countryId);
-          console.log("found: ", found);
           if (found != null) {
             this.country = found;
+          } else {
+            this.router.navigate(['not-found'])
           }
           this.data = [
             {
