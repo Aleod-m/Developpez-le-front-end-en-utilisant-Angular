@@ -2,8 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Observable, Subscription, of } from 'rxjs';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import { OlympicCountry } from 'src/app/core/models/OlympicCountry';
-import { BoxedTextComponent } from 'src/app/core/components/BoxedTextComponent';
-import { RowComponent } from 'src/app/core/components/RowComponent';
 import { Router } from '@angular/router';
 
 interface ChartData {
