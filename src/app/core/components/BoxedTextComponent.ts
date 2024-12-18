@@ -15,9 +15,9 @@ import { Component, Input } from '@angular/core';
     p {
       text-align: center;
       padding: 1rem 1.5rem;
-      border-width: 1px;
+      border-width: 2px;
       border-style: solid;
-      border-radius: .3rem;
+      border-radius: .5rem;
     }
   `,
 })
@@ -26,4 +26,3 @@ export class BoxedTextComponent {
   @Input() border_color: string = "green";
   @Input() background_color: string = "white";
 }
-

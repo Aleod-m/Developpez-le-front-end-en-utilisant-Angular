@@ -13,7 +13,6 @@ import { Component, Input } from '@angular/core';
     div {
       display: flex;
       flex-direction: row;
-      width: fit-conent;
     }
   `,
 })

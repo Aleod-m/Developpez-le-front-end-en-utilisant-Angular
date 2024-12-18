@@ -1,15 +1,25 @@
 <Center>
-  <BoxedText>Medals per Country</BoxedText>
+  <BoxedText
+    background_color="#04838f"
+    text_color="white"
+    border_color="#04838f"
+    >
+    Medals per Country
+  </BoxedText>
 </Center>
 <Center>
   <Row>
-    <BoxedText>
+    <BoxedText
+			border_color="#04838f"
+      >
       Number of Olympic Games <br/>
-      {{ (olympics$ | async)?.length }}
+      <b>{{ (olympics$ | async)?.length }}</b>
     </BoxedText>
-    <BoxedText>
+    <BoxedText
+			border_color="#04838f"
+      >
       Number of Countries <br/>
-      {{ (olympics$ | async)?.length }}
+      <b>{{ (olympics$ | async)?.length }}</b>
     </BoxedText>
   </Row>
 </Center>

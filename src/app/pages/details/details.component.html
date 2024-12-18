@@ -1,21 +1,34 @@
 <Center>
-  <NavButton/>
-  <BoxedText>{{country.country}}</BoxedText>
+  <Row>
+    <NavButton/>
+    <BoxedText
+      background_color="#04838f"
+      text_color="white"
+      border_color="#04838f"
+      >
+      {{country.country}}
+    </BoxedText>
+  </Row>
 </Center>
 <Center>
   <Row>
-    <BoxedText>
+    <BoxedText
+      border_color="#04838f"
+      >
       Number of Entries <br/>
-      {{ country.participations.length }}
+      <b>{{ country.participations.length }}</b>
     </BoxedText>
-    <BoxedText>
+    <BoxedText
+      border_color="#04838f"
+      >
       Number of Medals<br/>
-      {{totalMedals}}
-
+      <b>{{totalMedals}}</b>
     </BoxedText>
-    <BoxedText>
+    <BoxedText
+      border_color="#04838f"
+      >
       Number of athletes<br/>
-      {{totalAthletes}}
+      <b>{{totalAthletes}}</b>
     </BoxedText>
   </Row>
 </Center>
@@ -24,11 +37,10 @@
     scheme="cool"
     [legend]="legend"
     [showXAxisLabel]="showXAxisLabel"
-    [showYAxisLabel]="showYAxisLabel"
     [xAxis]="xAxis"
+    [xAxisTickFormatting]="format"
     [yAxis]="yAxis"
     [xAxisLabel]="xAxisLabel"
-    [yAxisLabel]="yAxisLabel"
     [results]="data"
     >
   </ngx-charts-line-chart>
