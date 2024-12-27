@@ -6,3 +6,32 @@ body {
   overflow: hidden;
 }
 
+.ngx-charts-tooltip-content {
+  border-radius: .5rem !important;
+  background-color: #04838f !important;
+  .tooltip-caret {
+    color: #04838f !important;
+    &.position-left {
+      border-left-color: #04838f !important;
+    }
+
+    &.position-top {
+      border-top-color: #04838f !important;
+    }
+
+    &.position-right {
+      border-right-color: #04838f !important;
+    }
+    &.position-bottom {
+      border-bottom-color: #04838f !important;
+    }
+  }
+  .tooltip-content-container {
+    display: flex;
+    flex-direction: column;
+    font-size: 150%;
+    gap: .3rem;
+    padding: .3rem;
+    * { margin: 0rem; }
+  }
+}

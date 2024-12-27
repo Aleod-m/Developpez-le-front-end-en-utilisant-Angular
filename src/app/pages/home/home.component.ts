@@ -4,6 +4,7 @@ import { Observable, Subscription, of } from 'rxjs';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import { OlympicCountry } from 'src/app/core/models/OlympicCountry';
 import { LegendPosition } from '@swimlane/ngx-charts';
+import { faMedal } from "@fortawesome/free-solid-svg-icons"
 
 interface ChartData {
   name: string,
@@ -25,8 +26,8 @@ export class HomeComponent implements OnInit {
   trimLabels: boolean = false;
   showLegend: boolean = true;
   legendPosition: LegendPosition = LegendPosition.Right;
-
-  constructor(private olympicService: OlympicService, private router: Router) {}
+  faMedal = faMedal;
+  constructor(private olympicService: OlympicService, private router: Router) { }
 
   ngOnInit(): void {
     this.olympics$ = this.olympicService.getOlympics();
@@ -35,8 +36,8 @@ export class HomeComponent implements OnInit {
         let totalMedalCount = country.participations.reduce((tot, part) => tot + part.medalsCount, 0);
         return {
           name: country.country,
-          value:  totalMedalCount,
-          extra: {countryId: country.id}
+          value: totalMedalCount,
+          extra: { countryId: country.id }
         };
       });
     });

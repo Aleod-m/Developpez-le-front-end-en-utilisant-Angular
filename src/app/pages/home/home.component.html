@@ -32,7 +32,14 @@
     [trimLabels]="trimLabels"
     [legend]="showLegend"
     [legendPosition]="legendPosition"
+    [tooltipDisabled]="false"
     (select)="onChartSelect($event)"
     >
+    <ng-template #tooltipTemplate let-model="model">
+      <div class="tooltip-content-container">
+        <p>{{ model.name }}</p>
+        <p><fa-icon [icon]="faMedal"></fa-icon>{{ model.value }}</p>
+      </div>
+    </ng-template>
   </ngx-charts-pie-chart>
 </ChartContainer>
