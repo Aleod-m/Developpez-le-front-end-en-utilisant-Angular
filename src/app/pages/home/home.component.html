@@ -23,21 +23,24 @@
     </BoxedText>
   </Row>
 </Center>
-<ChartContainer style="flex-shrink: 0; flex-grow: 1;">
-  <ngx-charts-pie-chart
-    scheme="cool"
-    legendTitle="Countries"
-    [results]="data"
-    [labels]="showLabels"
-    [trimLabels]="trimLabels"
-    [legend]="showLegend"
-    [legendPosition]="legendPosition"
-    [tooltipDisabled]="false"
-    (select)="onChartSelect($event)"
-    >
-    <ng-template #tooltipTemplate let-model="model">
-      <p>{{ model.name }}</p>
-      <p><fa-icon [icon]="faMedal"></fa-icon>{{ model.value }}</p>
-    </ng-template>
-  </ngx-charts-pie-chart>
-</ChartContainer>
+<Center
+  (waResizeObserver)="onResize($event)"
+>
+<ngx-charts-pie-chart
+  scheme="cool"
+  legendTitle="Countries"
+  [results]="data"
+  [labels]="showLabels"
+  [trimLabels]="trimLabels"
+  [legend]="showLegend"
+  [legendPosition]="legendPosition"
+  [tooltipDisabled]="false"
+  [view]="view"
+  (select)="onChartSelect($event)"
+  >
+  <ng-template #tooltipTemplate let-model="model">
+    <p>{{ model.name }}</p>
+    <p><fa-icon [icon]="faMedal"></fa-icon>{{ model.value }}</p>
+  </ng-template>
+</ngx-charts-pie-chart>
+</Center>

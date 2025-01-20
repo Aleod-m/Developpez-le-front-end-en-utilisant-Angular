@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
 
+/**
+ * Layout component for putting its content in a row.
+ */
 @Component({
   selector: 'Row',
   template: `
@@ -17,6 +20,7 @@ import { Component, Input } from '@angular/core';
   `,
 })
 export class RowComponent {
+  /** Gap between all the elements.*/
   @Input() gap: string = "10px";
 }
 

@@ -10,7 +10,12 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ComponentLibModule } from 'src/app/core/components/component-lib.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { WaResizeObserver } from '@ng-web-apis/resize-observer';
 
+/**
+ * Root module of the application.
+ * It bootstraps the initial component.
+ */
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,8 +30,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppRoutingModule,
     NgxChartsModule,
     FontAwesomeModule,
+    WaResizeObserver,
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+ 

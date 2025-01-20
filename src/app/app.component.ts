@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs';
 import { OlympicService } from './core/services/olympic.service';
 
+/** Root component of the application.*/
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

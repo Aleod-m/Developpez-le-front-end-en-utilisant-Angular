@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
+// All routes in the application.
 const routes: Routes = [
   {
     path: '',
@@ -26,9 +27,9 @@ const routes: Routes = [
     path: '**', // wildcard
     redirectTo: 'not-found'
   },
-
 ];
 
+// Router with the feature component input binding allowing to use the `@Input` annotation to get the path parameters.
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   providers: [provideRouter(routes, withComponentInputBinding())],

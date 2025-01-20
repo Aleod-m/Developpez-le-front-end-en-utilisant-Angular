@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { OlympicCountry } from "../models/OlympicCountry";
 
+/** The service providing the data for the olympics. */
 @Injectable({
   providedIn: 'root',
 })

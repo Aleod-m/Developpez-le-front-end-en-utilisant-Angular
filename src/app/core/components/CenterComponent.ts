@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+/**
+ * Layout Component centering its content.
+ */
 @Component({
   selector: 'Center',
   template: `

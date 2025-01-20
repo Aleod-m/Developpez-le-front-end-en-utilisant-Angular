@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 
+/**
+ * Component for navigating back to home page.
+ */
 @Component({
   selector: 'NavButton',
   template: `
@@ -35,6 +38,7 @@ export class NavButtonComponent {
 
   constructor(private router: Router) { }
 
+  // Navigate to the home route.
   onClick(): void {
     this.router.navigate(["home"]);
   }

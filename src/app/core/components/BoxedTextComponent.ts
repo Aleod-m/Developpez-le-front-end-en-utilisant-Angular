@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
 
+/**
+ * Component creating boxed text with configurable styles.
+ */
 @Component({
   selector: 'BoxedText',
   template: `
@@ -22,7 +25,10 @@ import { Component, Input } from '@angular/core';
   `,
 })
 export class BoxedTextComponent {
+  /** Color of the text. */
   @Input() text_color: string = "black";
+  /** Color of the border. */
   @Input() border_color: string = "green";
+  /** Color of the background. */
   @Input() background_color: string = "white";
 }

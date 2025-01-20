@@ -6,7 +6,7 @@
       text_color="white"
       border_color="#04838f"
       >
-      {{country.country}}
+      {{name}}
     </BoxedText>
   </Row>
 </Center>
@@ -16,7 +16,7 @@
       border_color="#04838f"
       >
       Number of Entries <br/>
-      <b>{{ country.participations.length }}</b>
+      <b>{{numberOfParticipations}}</b>
     </BoxedText>
     <BoxedText
       border_color="#04838f"
@@ -32,16 +32,20 @@
     </BoxedText>
   </Row>
 </Center>
-<ChartContainer style="flex-shrink: 0; flex-grow: 1;">
-  <ngx-charts-line-chart
-    scheme="cool"
-    [legend]="legend"
-    [showXAxisLabel]="showXAxisLabel"
-    [xAxis]="xAxis"
-    [xAxisTickFormatting]="format"
-    [yAxis]="yAxis"
-    [xAxisLabel]="xAxisLabel"
-    [results]="data"
-    >
-  </ngx-charts-line-chart>
-</ChartContainer>
+<Center
+  (waResizeObserver)="onResize($event)"
+>
+<ngx-charts-line-chart
+  scheme="cool"
+  [legend]="legend"
+  [showXAxisLabel]="showXAxisLabel"
+  [xAxis]="xAxis"
+  [xAxisTickFormatting]="format"
+  [legendPosition]="legendPosition"
+  [yAxis]="yAxis"
+  [xAxisLabel]="xAxisLabel"
+  [results]="data"
+  [view]="view"
+>
+</ngx-charts-line-chart>
+</Center>
